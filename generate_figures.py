@@ -2,6 +2,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+from words.words import *
 
 def generate_word_count_figure(df, path_to_save):
     pass
@@ -20,11 +21,12 @@ def generate_neighbourhood_figure(df, path_to_save):
     name_list = ['Manhattan', 'Brooklyn', 'Queens', 'Staten_Island', 'Bronx']
     fig, axs = plt.subplots(figsize=(30, 10),ncols=5)
 
-    sns.regplot(df_manhattan.groupby(['neighbourhood']).mean()['price'], df_manhattan.groupby(['neighbourhood']).mean()['reviews_per_month'], ax=axs[0]).set
+    sns.regplot(df_manhattan.groupby(['neighbourhood']).mean()['price'], df_manhattan.groupby(['neighbourhood']).mean()['reviews_per_month'], ax=axs[0])
     sns.regplot(df_brooklyn.groupby(['neighbourhood']).mean()['price'], df_brooklyn.groupby(['neighbourhood']).mean()['reviews_per_month'], ax=axs[1])
     sns.regplot(df_queens.groupby(['neighbourhood']).mean()['price'], df_queens.groupby(['neighbourhood']).mean()['reviews_per_month'],ax=axs[2])
     sns.regplot(df_staten_island.groupby(['neighbourhood']).mean()['price'], df_staten_island.groupby(['neighbourhood']).mean()['reviews_per_month'],ax=axs[3])
     sns.regplot(df_bronx.groupby(['neighbourhood']).mean()['price'], df_bronx.groupby(['neighbourhood']).mean()['reviews_per_month'], ax=axs[4])
+
     for i in range(5):
         axs[i].set_title(name_list[i])
         axs[i].set_xlabel('Price')
