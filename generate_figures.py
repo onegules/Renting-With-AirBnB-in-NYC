@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from words.words import *
 
-def generate_word_count_figure(df, path_to_save):
+def generate_word_count_figure(words, word_count, path_to_save):
     pass
 
 def generate_room_type_figure(df, path_to_save):
