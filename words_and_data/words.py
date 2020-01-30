@@ -7,11 +7,12 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 nltk.download(['punkt', 'stopwords', 'wordnet'])
 
-df = pd.read_csv('AB_NYC_2019.csv')
+df = pd.read_csv('words_and_data/data/AB_NYC_2019.csv')
 df_name = df['name']
 df_name.dropna(inplace=True)
 
-def compute_word_counts(messages=df_name, load=True, filepath='counts.npz'):
+
+def compute_word_counts(messages=df_name, load=True, filepath='intermediate_files/counts.npz'):
     '''
     INPUT:
         messages - (list) List of messages to compute top words from, default is
@@ -43,6 +44,7 @@ def compute_word_counts(messages=df_name, load=True, filepath='counts.npz'):
         np.savez(filepath, top_words=top_words, top_counts=top_counts)
         return list(top_words), list(top_counts)
 
+
 def tokenize(text):
     '''
     INPUT:
@@ -58,6 +60,3 @@ def tokenize(text):
     for element in tokens:
         lemmatizer.lemmatize(element)
     return tokens
-
-if __name__ == '__main__':
-    pass
