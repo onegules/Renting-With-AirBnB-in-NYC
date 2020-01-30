@@ -1,4 +1,5 @@
 from collections import Counter
+import pandas as pd
 import numpy as np
 import nltk
 from nltk.stem import WordNetLemmatizer
@@ -6,6 +7,7 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 nltk.download(['punkt', 'stopwords', 'wordnet'])
 
+df = pd.read_csv('AB_NYC_2019.csv')
 df_name = df['name']
 df_name.dropna(inplace=True)
 
