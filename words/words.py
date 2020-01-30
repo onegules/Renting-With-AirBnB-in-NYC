@@ -6,10 +6,14 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 nltk.download(['punkt', 'stopwords', 'wordnet'])
 
-def compute_word_counts(messages, load=True, filepath='counts.npz'):
+df_name = df['name']
+df_name.dropna(inplace=True)
+
+def compute_word_counts(messages=df_name, load=True, filepath='counts.npz'):
     '''
     INPUT:
-        messages - (list) List of messages to compute top words from
+        messages - (list) List of messages to compute top words from, default is
+        the list of names of airbnb listings
         load - (bool) By default true. If false will generate word counts
         filepath - (string) File path to save or load data
 
