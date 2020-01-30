@@ -45,4 +45,13 @@ if __name__ == '__main__':
     df = pd.read_csv('words/AB_NYC_2019.csv')
     generate_neighbourhood_figure(df, 'images/neighbourhood.png')
     top_words, counts = compute_word_counts(filepath='words/counts.npz')
+    # Remove punctuation from the word counts
+    del top_words[1]
+    del top_words[1]
+    del counts[1]
+    del counts[1]
+    # Remove the number 1 from the list
+    del top_words[9]
+    del counts[9]
+
     generate_word_count_figure(top_words[:10], counts[:10], 'images/word_count.png')
