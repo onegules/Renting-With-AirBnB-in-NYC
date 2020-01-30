@@ -5,7 +5,10 @@ import seaborn as sns
 from words.words import *
 
 def generate_word_count_figure(words, word_count, path_to_save):
-    fig = plt.figure()
+    fig, ax = plt.subplots(figsize=(30, 10))
+    ax.set_xlabel('Words')
+    ax.set_ylabel('Times Found')
+    ax.set_title('Most Popular Words')
     plt.bar(words, word_count)
     plt.savefig(path_to_save)
 
