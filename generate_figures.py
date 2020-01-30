@@ -13,7 +13,16 @@ def generate_word_count_figure(words, word_count, path_to_save):
     plt.savefig(path_to_save)
 
 def generate_room_type_figure(df, path_to_save):
-    pass
+    room_types = df['room_type'].value_counts().to_numpy()
+    total = room_types.sum()
+    labels = ['Entire home/apt', 'Private room', 'Shared room']
+    fig, ax = plt.subplots(figsize=(30, 10))
+    ax.set_xlabel('Room Type')
+    ax.set_ylabel('Percentage of Total')
+    ax.set_title('Types of rooms in dataset')
+    ax.set_ylim(0,100)
+    plt.bar(labels, (room_types/total)*100)
+    plt.savefig(path_to_save)
 
 
 def generate_neighbourhood_figure(df, path_to_save):
@@ -43,7 +52,9 @@ def generate_neighbourhood_figure(df, path_to_save):
 
 if __name__ == '__main__':
     df = pd.read_csv('words/AB_NYC_2019.csv')
+
     generate_neighbourhood_figure(df, 'images/neighbourhood.png')
+
     top_words, counts = compute_word_counts(filepath='words/counts.npz')
     # Remove punctuation from the word counts
     del top_words[1]
@@ -55,3 +66,5 @@ if __name__ == '__main__':
     del counts[9]
 
     generate_word_count_figure(top_words[:10], counts[:10], 'images/word_count.png')
+
+    generate_room_type_figure(df, 'images/room_types.png')
