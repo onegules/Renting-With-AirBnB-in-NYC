@@ -39,7 +39,20 @@ def compute_word_counts(messages, load=True, filepath='counts.npz'):
         return list(top_words), list(top_counts)
 
 def tokenize(text):
-    pass
+    '''
+    INPUT:
+    text - (str) Takes text and standardizes it
+
+    OUTPUT:
+    tokens - (list) Tokenized text
+    '''
+    lower_text = text.lower()
+    tokens = word_tokenize(lower_text)
+    lemmatizer = WordNetLemmatizer()
+    tokens = [words for words in tokens if words not in stopwords.words("english")]
+    for element in tokens:
+        lemmatizer.lemmatize(element)
+    return tokens
 
 if __name__ == '__main__':
     pass
