@@ -51,11 +51,11 @@ def generate_neighbourhood_figure(df, path_to_save):
     fig.savefig(path_to_save)
 
 if __name__ == '__main__':
-    df = pd.read_csv('words/AB_NYC_2019.csv')
+    df = pd.read_csv('words_and_data/data/AB_NYC_2019.csv')
 
     generate_neighbourhood_figure(df, 'images/neighbourhood.png')
 
-    top_words, counts = compute_word_counts(filepath='words/counts.npz')
+    top_words, counts = compute_word_counts(filepath='words_and_data/intermediate_files/counts.npz')
     # Remove punctuation from the word counts
     del top_words[1]
     del top_words[1]

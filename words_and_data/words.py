@@ -7,11 +7,11 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 nltk.download(['punkt', 'stopwords', 'wordnet'])
 
-df = pd.read_csv('words_and_data/data/AB_NYC_2019.csv')
+df = pd.read_csv('AB_NYC_2019.csv')
 df_name = df['name']
 df_name.dropna(inplace=True)
 
-def compute_word_counts(messages=df_name, load=True, filepath='intermediate_files/counts.npz'):
+def compute_word_counts(messages=df_name, load=True, filepath='counts.npz'):
     '''
     INPUT:
         messages - (list) List of messages to compute top words from, default is
