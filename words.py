@@ -8,16 +8,15 @@ nltk.download(['punkt', 'stopwords', 'wordnet'])
 
 def compute_word_counts(messages, load=True, filepath='counts.npz'):
     '''
-    input: (
-        messages: list or numpy array
-        load: Boolean value if load or run model
-        filepath: filepath to save or load data
-            )
-    Function computes the top 20 words in the dataset with counts of each term
-    output: (
-        top_words: list
-        top_counts: list
-            )
+    INPUT:
+        messages - (list) List of messages to compute top words from
+        load - (bool) By default true. If false will generate word counts
+        filepath - (string) File path to save or load data
+
+    OUTPUT:
+        top_words - (list) Top words
+        top_counts - (list) Top word counts
+
     '''
     if load:
         # load arrays
