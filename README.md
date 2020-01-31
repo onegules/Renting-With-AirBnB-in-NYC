@@ -2,9 +2,8 @@
 
 ## Project Overview
 
-This is the github repository for a blog post found here ____________. This
-repository contains all of my analysis and generated images that I used for the
-post.
+This is the github repository for a blog post found [here](https://medium.com/@chrono.hi/renting-with-airbnb-in-nyc-714b3fe3c515). This repository contains all of my
+analysis and generated images that I used for the post.
 
 ## Data
 
